@@ -1,0 +1,21 @@
+{
+  "name": "tulacze-theme",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Superskrypt",
+  "license": "ISC",
+  "dependencies": {
+    "@superskrypt/sutils": "^0.2.0",
+    "umbrellajs": "^3.1.0",
+    "zepto": "^1.2.0",
+    "zepto-modules": "^1.0.1"
+  },
+  "devDependencies": {
+    "@superskrypt/gulp-tasks": "0.2.3",
+    "gulp": "3.9.1"
+  }
+}

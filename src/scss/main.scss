@@ -1,0 +1,19 @@
+@import "base/reset";
+@import "base/consts";
+@import "base/fonts";
+
+@import "components/map";
+@import "components/phases";
+@import "components/dashboard";
+
+html, body {
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    background: white;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}

@@ -1,0 +1,25 @@
+.dashboard {    
+    position: absolute;
+
+    height: calc(100% - #{1.5 * $unit});
+    width: $dashboard-width;
+    left: 0;
+    top: 0;
+
+    padding: 3*$unit $unit 0 $unit;
+
+    background: $transparent-background;
+
+    color: $solid-background;
+}
+
+.dashboard--phase {
+    &:not(.active) {
+        display: none;
+    }
+
+    hr {
+        border-color: $solid-background;
+        border-width: .5px;
+    }
+}

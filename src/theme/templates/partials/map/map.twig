@@ -1,0 +1,25 @@
+{% import "partials/map/place.twig" as Places %}
+
+<div class="map-container">
+    <div class="map">
+        <img src="/wp-content/themes/tulacze-theme/images/map.jpg">
+        <div class="map--phase" data-phase="0">
+            {{ Places.place('Kresy', 547, 55, 43)}}
+        </div>
+        <div class="map--phase" data-phase="1">
+            {{ Places.place('Archangielsk', 236, 66, 30)}}
+            {{ Places.place('Kozielsk', 180, 68, 34)}}
+        </div>
+        <div class="map--phase" data-phase="2">
+            {{ Places.place('Tadżykistan', 140, 65, 45)}}
+        </div>
+        <div class="map--phase" data-phase="3">
+            {{ Places.place('Bliski Wschód', 120, 58, 49)}}
+        </div>
+        <div class="map--phase" data-phase="4">
+            {{ Places.place('Anglia', 80, 46, 39)}}
+            {{ Places.place('Meksyk', 80, 18, 53)}}
+            {{ Places.place('RPA', 80, 53, 73)}}
+        </div>
+    </div>
+</div>

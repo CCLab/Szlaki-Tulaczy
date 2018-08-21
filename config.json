@@ -1,0 +1,15 @@
+{
+    "webpack_includes": [],
+    "envs": {
+        "tst": {
+            "host": "",
+            "user": "superskrypt",
+            "path": "public_html/profsa.pl/wp-content/themes/tulacze-theme"
+        },
+        "prod": {
+            "host": "",
+            "user": "",
+            "path": ""
+        }
+    }
+}

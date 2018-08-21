@@ -1,0 +1,58 @@
+.phases {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+
+    display: flex;
+    justify-content: flex-end;
+
+    width: 100%;
+    padding-left: $unit;
+    padding-right: $unit;
+
+    background: $transparent-background;
+    
+    .phases--phase {
+        height: $unit;
+        width: 5*$unit;
+        display: flex;
+        position: relative;
+
+        $border-width: 4px;
+        border: $border-width solid $solid-background;
+        margin-left: -$border-width;
+
+        flex-direction: column;
+        justify-content: center;
+
+        text-transform: uppercase;
+        user-select: none;
+        cursor: pointer;
+        text-align: center;
+
+        &.active {
+            background: $solid-background;
+
+            &:before,
+            &:after {
+                content: '';
+                position: absolute;
+                pointer-events: none;
+                height: $unit/2;
+                background: $transparent-background;
+                width: 100vw;
+                top: calc(-#{$unit/2} - #{$border-width});
+            }
+
+            &:before {
+                right: calc(100% + #{$border-width});
+                border-radius: 0 $unit/4 0 0;
+            }
+
+            &:after {
+                left: calc(100% + #{$border-width});
+                border-radius: $unit/4 0 0 0;
+            }
+        }
+    }
+}

@@ -1,0 +1,161 @@
+main {
+    height: 100%;
+    width: 100%;
+}
+
+.map-container {
+    position: relative;
+
+    height: 100%;
+    width: 100%;
+
+    &:after {
+        position: absolute;
+        content: '';
+        right: 0;
+        top: 0;
+        width: calc(100% - #{$frame-width} - #{$dashboard-width});
+        height: calc(100% - #{1.5*$unit + $frame-width});
+
+        pointer-events: none;
+
+        border: 0 solid $transparent-background;
+        border-top-width: $frame-width;
+        border-right-width: $frame-width;
+    }
+}
+
+.map {
+    position: relative;
+    left: 50%;
+    top: 50%;
+
+    height: 1546px;
+    width: 2000px;
+
+    transition: transform 2s linear, transform-origin 2s linear;
+
+    transform-origin: 0 0;
+    transform: scale(1) translate(-50%, -50%);
+
+    img {
+        position: absolute;
+        filter: grayscale(.8);
+    }
+}
+
+.map--phase {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}
+
+.map--place {
+    position: relative;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+
+    z-index: 10;
+
+    transition: background .5s, opacity .5s;
+
+    cursor: pointer;
+
+    &--name,
+    &--size {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+
+        width: 300px;
+        text-align: center;
+
+        z-index: 20;
+    }
+
+    &--name {
+        top: -1em;
+    }
+
+    &--size {
+        bottom: -1em;
+    }
+
+    .activeExit &,
+    .activeEntry & {
+        opacity: 1;
+    }
+
+    .activeExit & {
+        background: red;
+    }
+
+    .activeEntry & {
+        background: $solid-background;
+    }
+
+    &:not(:hover) &--name,
+    &:not(:hover) &--size {
+        display: none;
+    }
+}
+
+.map--path {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+
+    pointer-events: none;
+    opacity: .5;
+    background: url("../images/path-shape.svg#path");
+    background-size: 100% 100%;
+
+    transform-origin: 0 0;
+    transition: width .5s, opacity .1s;
+
+    &:nth-of-type(1) {
+        transition-delay: .3s;
+    }
+    &:nth-of-type(2) {
+        transition-delay: .5s;
+    }
+    &:nth-of-type(3) {
+        transition-delay: .7s;
+    }
+
+    .map--phase:not(.activeExit) & {
+        width: 0!important;
+
+        & {
+            opacity: 0;
+        }
+    }
+
+    &:after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 0;
+        border-top: 40px solid transparent;
+        border-left: 30px solid $solid-background;
+        border-bottom: 40px solid transparent;
+        right: -30px+1px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+}
+
+
+
+
+
+.dupa {
+    position: absolute;
+    top: 50%;
+    left: 7%;
+    width: 200px;
+    height: 20px;
+    background: url("../images/path-shape.svg#path");
+    background-size: 100% 100%;
+}

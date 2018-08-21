@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="pl">
+    {% block html_head_container %}
+        {% include 'html_head.twig' %}
+    {% endblock %}
+
+    <body class="{{body_class}}">
+        {% block header %}
+        {% endblock %}
+
+        <main class="{{body_class}}">
+
+            {% block main_content %}
+                Sorry, no content
+            {% endblock %}
+
+        </main>
+
+        {% block footer %}
+        {% endblock %}
+
+        {{ function('wp_footer') }}
+
+    </body>
+
+    </html>
