@@ -1,0 +1,9 @@
+<div class="dashboard--phase" data-phase="{{phase.slug}}">
+    <div class="dashboard--phase--title">{{phase.name}}<hr></div>
+    <p class="heading">{{phase.tul_time}}</p>
+    <p class="heading">{{phase.tul_subtitle}}</p>
+    <hr>
+    {% for stat in phase.tul_stats %}
+        <p class="heading"><strong>{{stat.strong}}</strong> {{stat.text}}</p>
+    {% endfor %}
+</div>

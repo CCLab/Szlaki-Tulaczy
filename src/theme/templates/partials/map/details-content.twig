@@ -1,0 +1,79 @@
+{% import 'macros/audio.twig' as Audio %}
+{% import 'macros/gallery.twig' as Gallery %}
+
+<section class="details--section details--place">
+    <div class="details--section--name"><svg class="svg-icon"><use xlink:href="/wp-content/themes/tulacze-theme/images/icon-place.svg#Layer_1"></use></svg><span>miejsce</span></div>
+    <p> <span class="heading">{{place.name}}</p>
+    <div class="details--stats">
+        <p><strong>{{place.tul_country}}</strong></p>
+        <p><strong>{{place.tul_place_count}}</strong> deportowanych</p>
+        <p>kto: <strong>{{place.tul_place_who}}</strong></p>
+        {% for other in place.tul_place_other %}
+            <p>{{ other.desc ? other.desc ~ ": "}}{{other.text}}</p>
+        {% endfor %}
+    </div>
+    {{place.tul_place_text | wpautop}}
+    {% if place.tul_place_photos %}
+        {{ Gallery.gallery(place.tul_place_photos, place.tul_place_photos_caption) }}
+    {% endif %}
+</section>
+{% if place.tul_paths_entry or place.tul_paths_entry_tul_path_photos or place.tul_paths_exit or place.tul_paths_exit_tul_path_photos %}
+<section class="details--section details--path">
+    <div class="details--section--name"><svg class="svg-icon"><use xlink:href="/wp-content/themes/tulacze-theme/images/icon-path.svg#Layer_1"></use></svg><span>szlaki</span></div>
+        <div class="details--section--contents entry">
+            {% if place.tul_paths_entry %}
+                {% for path in place.tul_paths_entry %}
+                    {% include 'partials/details/path.twig' %}
+                {% endfor %}
+            {% endif %}
+            {% if place.tul_paths_entry_tul_path_photos %}
+                {{ Gallery.gallery(place.tul_paths_entry_tul_path_photos, place.tul_paths_entry_tul_path_photos_caption) }}
+            {% endif %}
+        </div>
+        <div class="details--section--contents exit">
+            {% if place.tul_paths_exit %}
+                {% for path in place.tul_paths_exit %}
+                    {% include 'partials/details/path.twig' %}
+                {% endfor %}
+            {% endif %}
+            {% if place.tul_paths_exit_tul_path_photos %}
+                {{ Gallery.gallery(place.tul_paths_exit_tul_path_photos, place.tul_paths_exit_tul_path_photos_caption) }}
+            {% endif %}
+        </div>
+    </div>
+</section>
+{% endif %}
+{% if place.tul_remembrance or place.tul_exiles %}
+<section class="details--section details--remembrance">
+    <div class="details--section--name"><svg class="svg-icon"><use xlink:href="/wp-content/themes/tulacze-theme/images/icon-remembrance.svg#Layer_1"></use></svg><span>wspomnienia</span></div>
+    {% for remembrance in place.tul_remembrance %}
+        <p class="heading">{{remembrance.title}}</p>
+        {% for quote in remembrance.quotes %}
+            <p{{ (not quote.is_audio) ? ' class="quote"'}}>
+                {% if quote.is_audio %}
+                    {{ Audio.audio(quote.audio_caption, quote.audio) }}
+                {% else %}
+                    {{quote.quote}}<br>
+                {% endif %}
+
+                <span class="quote--author">{{quote.author}}</span><br>
+                {% if quote.ref %}
+                    <span class="quote--ref">sygn. {{quote.ref}}</span>
+                {% endif %}
+            </p>
+        {% endfor %}
+        {% if remembrance.link['url'] %}
+            <p><a class="quote--link" href="{{remembrance.link['url']}}">Więcej wspomnień</a></p>
+        {% endif %}
+    {% endfor %}
+
+    {% if place.tul_exiles %}
+        <p class="heading">Tułacze</p>
+        <p>
+        {% for exile in place.tul_exiles %}
+            <a href="{{Post(exile.id).link}}" class="details--exile quote--link">{{Post(exile.id).title}}</a><br>
+        {% endfor %}
+        </p>
+    {% endif %}
+</section>
+{% endif %}

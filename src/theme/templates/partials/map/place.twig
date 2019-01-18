@@ -1,9 +1,0 @@
-{% macro place(name, rad, left, top) %}
-
-{% set size = rad * rad %}
-
-<div class="map--place" style="left:{{left}}%;top:{{top}}%;width:{{rad / 5}}px;height:{{rad / 5}}px;">
-    <span class="map--place--name">{{name}}</span>
-    <span class="map--place--size">{{size}}</span>
-</div>
-{% endmacro %}

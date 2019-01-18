@@ -1,0 +1,35 @@
+.logo {
+    display: flex;
+    justify-items: space-between;
+
+    color: $darkblue;
+
+    transition: padding .3s;
+
+    user-select: none;
+
+    &:hover {
+        $hover-padding: 5%;
+        padding-left: $hover-padding;
+        padding-right: $hover-padding;
+    }
+
+    span:nth-child(2) {
+        flex-grow: 1;
+        margin-left: .25em;
+        margin-right: .25em;
+        position: relative;
+        
+        &:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            width: 100%;
+            height: 1px;
+            transform: translateY(-50%);
+
+            background: $darkblue;
+        }
+    }
+}

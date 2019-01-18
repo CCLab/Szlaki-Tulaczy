@@ -1,0 +1,40 @@
+.quote {
+    position: relative;
+    padding-top: 28px;
+
+    &:before {
+        content: '„';
+        position: absolute;
+        left: 0;
+        top: -33px;
+        font-size: 55px;
+        line-height: 1em;
+        font-weight: $font-weight-black;
+    }
+}
+
+.quote--author {
+    font-weight: $font-weight-black;
+}
+
+.quote--ref {
+    @include fontUppercaseSmall;
+}
+
+.quote--link {
+    &:before {
+        content: '>';
+        position: absolute;
+        left: 0;
+    }
+
+    position: relative;
+    padding-left: 1em;
+    @include fontUppercaseSmall;
+    text-decoration: underline;
+    transition: padding-left .3s;
+
+    &:hover {
+        padding-left: 2em;
+    }
+}

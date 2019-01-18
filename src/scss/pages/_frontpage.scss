@@ -1,0 +1,54 @@
+.home:not(.map-active) {
+    header .dashboard .logo {
+        visibility: hidden;
+    }
+    main {
+        .map--phase,
+        .map-container:after,
+        > .phases {
+
+            opacity: 0;
+            visibility: hidden;
+        }
+        > .dashboard {
+            transform: translateX(calc(-100%));
+        }
+
+        .map {
+            opacity: 0;
+            // transition: opacity 3s;
+        }
+    }
+}
+
+.home main {
+    .map--phase,
+    .map-container:after,
+    > .dashboard,
+    > .phases {
+        opacity: 1;
+        transition: opacity .5s, transform .5s;
+        transition-delay: .5s;
+    }
+}
+
+.home.intro-on main {
+    .map--phase,
+    .map-container:after,
+    > .dashboard,
+    > .phases {
+        transition-delay: 2s;
+    }
+}
+
+.home {
+    opacity: 0;
+}
+
+.home:not(.home__visible) {
+    visibility: hidden;
+}
+
+.desktop-disclaimer {
+    display: none;
+}

@@ -1,6 +1,17 @@
-$unit: 2vw;
-$frame-width: .5vw;
-$transparent-background: rgba(0,0,255,.3);
-$solid-background: rgba(0,0,255,1);
+$unit: 2.3vw;
+$frame-width: $unit/4;
+$thick-line-width: 5px;
+
+$darkblue: rgb(30,25,100);
+$darkblue-tint: mix($darkblue, white, 50%);
+$darkblue-lighttint: mix($darkblue, white, 40%);
+$blue: rgb(50,50,170);
+$orange: rgb(255,135,115);
+$orange-tint: mix($orange, white, 50%);
+$violet: rgb(80,50,70);
+$violet-tint: mix($violet, white,  73%);
+
+$transparent-background: rgba($darkblue, .4);
+$solid-background: $darkblue;
 
 $dashboard-width: 10*$unit;

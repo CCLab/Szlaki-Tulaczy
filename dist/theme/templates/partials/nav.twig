@@ -1,0 +1,23 @@
+{% import "macros/hamburger.twig" as Hamburger %}
+
+<nav>
+    <div class="menu">
+        {{ Hamburger.hamburger() }}
+
+        {% for item in menu.items %}
+            <p class="menu--item"><a class="heading" href="{{ item.link }}">{{ item.title }}</a></p>
+        {% endfor %}
+        <p class="menu--sidebar">made by <a href="https://superskrypt.pl/">Superskrypt</a></p>
+        <p class="menu--item logo--item">
+            <a class="logo karta" href="http://karta.org.pl/" title="Ośrodek Karta">
+                <svg class="svg-icon"><use xlink:href="/wp-content/themes/tulacze-theme/images/logo-Karta.svg#Layer_1"></use></svg>
+            </a>
+        </p>
+        <p class="menu--item logo--item">
+            <a class="logo centrum" href="https://centrumcyfrowe.pl/" title="Centrum Cyfrowe">
+                <svg class="svg-icon"><use xlink:href="/wp-content/themes/tulacze-theme/images/logo-CC.svg#Layer_1"></use></svg>
+            </a>
+        </p>
+    </div>
+
+</nav>

@@ -1,0 +1,17 @@
+{% macro gallery(images, caption) %}
+    <div class="details--gallery{{(images| length <= 1) ? ' details--gallery__single'}}">
+        <span class="details--gallery--previous"></span>
+        <div class="details--gallery--content">
+            {% for img in images %}
+                <figure class="details--gallery--image" style="background-image: url('{{Image(img).src('medium')}}')">
+                    <span class="details--gallery--image--copyrights">i</span>
+                    <figcaption class="details--gallery--image--caption">
+                        <strong>Tytuł: </strong>{{Image(img).title}}
+                    </figcaption>
+                </figure>
+            {% endfor %}
+        </div>
+        <span class="details--gallery--next"></span>
+        <p class="details--gallery--caption">{{caption}}</p>
+    </div>
+{% endmacro %}

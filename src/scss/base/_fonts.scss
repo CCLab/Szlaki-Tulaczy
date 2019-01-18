@@ -1,10 +1,64 @@
-p {
+$font-weight-semibold: 600;
+$font-weight-black: 900;
+
+$font-size-xxl: 4.5vw;
+$font-size-xl: 36px;
+$font-size-l: 21px;
+$font-size-m: 16px;
+$font-size-s: 12px;
+
+@mixin fontUppercase {
+    text-transform: uppercase;
+    letter-spacing: .1em;
+}
+
+@mixin fontUppercaseSmall {
+    font-size: $font-size-s;
+    font-weight: $font-weight-semibold;
+    @include fontUppercase;
+    line-height: 1em;
+}
+
+@mixin fontUppercaseL {
+    font-size: $font-size-l;
+    font-weight: $font-weight-black;
+    @include fontUppercase;
+    line-height: 1em;
+}
+
+@mixin fontItalic {
+    font-style: italic;
+}
+
+body {
+    font-family: 'Montserrat';
+    color: $darkblue;
+    line-height: 1.4em;
+}
+
+p:not(:last-child) {
     margin-bottom: 1em;
 }
 
 .heading {
+    font-weight: $font-weight-black;
+    font-size: $font-size-l;
+    line-height: 1.1em;
+
     strong {
         display: block;
-        font-size: 2em;
+        font-size: $font-size-xxl;
+        line-height: 1em;
     }
+}
+
+.lead {
+    font-weight: $font-weight-semibold;
+    font-size: $font-size-l;
+    line-height: 1.4;
+    margin-bottom: 1em;
+}
+
+i {
+    @include fontItalic;
 }

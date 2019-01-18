@@ -1,21 +1,21 @@
-main {
-    height: 100%;
-    width: 100%;
-}
-
 .map-container {
     position: relative;
 
     height: 100%;
     width: 100%;
 
+    background: url('../images/map-background.jpg');
+
+    user-select: none;
+
     &:after {
         position: absolute;
         content: '';
         right: 0;
         top: 0;
-        width: calc(100% - #{$frame-width} - #{$dashboard-width});
+        width: calc(100% - #{$frame-width});
         height: calc(100% - #{1.5*$unit + $frame-width});
+        max-height: calc(100% - #{$unit/2 + $frame-width} - #{2.5*$font-size-s});
 
         pointer-events: none;
 
@@ -30,17 +30,21 @@ main {
     left: 50%;
     top: 50%;
 
-    height: 1546px;
-    width: 2000px;
+    height: 2300px;
+    width: 5503px;
 
-    transition: transform 2s linear, transform-origin 2s linear;
+    transition: opacity 3s linear;
+
+    .map-animations-active & {
+        transition: transform 2s linear, transform-origin 2s linear, font-size 2s linear;
+    }
 
     transform-origin: 0 0;
     transform: scale(1) translate(-50%, -50%);
 
     img {
         position: absolute;
-        filter: grayscale(.8);
+        // filter: grayscale(.8);
     }
 }
 
@@ -51,14 +55,28 @@ main {
 }
 
 .map--place {
-    position: relative;
+    position: absolute;
     border-radius: 50%;
     transform: translate(-50%, -50%);
     opacity: 0;
 
     z-index: 10;
+    box-sizing: content-box;
+
+    color: $blue;
+    // border: calc(#{1em / 21 * 5}) solid;
 
     transition: background .5s, opacity .5s;
+
+    // &:hover,
+    // &__active {
+    //     z-index: 15;
+    // }
+
+
+    &:not(:hover):not(&__active) {
+        box-shadow: none!important;
+    }
 
     cursor: pointer;
 
@@ -69,17 +87,23 @@ main {
         transform: translateX(-50%);
 
         width: 300px;
+        padding: .5em 0;
+
+        line-height: 1em;
+        display: flex;
+        justify-content: center;
         text-align: center;
 
         z-index: 20;
+        pointer-events: none;
     }
 
     &--name {
-        top: -1em;
+        bottom: 100%;
     }
 
     &--size {
-        bottom: -1em;
+        top: 100%;
     }
 
     .activeExit &,
@@ -88,16 +112,19 @@ main {
     }
 
     .activeExit & {
-        background: red;
+        background: $orange;
+        box-shadow: 0 0 0 calc(#{1em / 21 * 5}) $blue;
     }
 
     .activeEntry & {
-        background: $solid-background;
+        background: $blue;
+        box-shadow: 0 0 0 calc(#{1em / 21 * 5}) $orange;
     }
 
-    &:not(:hover) &--name,
-    &:not(:hover) &--size {
+    &:not(:hover):not(&__active) &--name,
+    &:not(:hover):not(&__active) &--size {
         display: none;
+        z-index: 10;
     }
 }
 
@@ -107,7 +134,7 @@ main {
     top: 50%;
 
     pointer-events: none;
-    opacity: .5;
+    opacity: .4;
     background: url("../images/path-shape.svg#path");
     background-size: 100% 100%;
 
@@ -133,29 +160,16 @@ main {
     }
 
     &:after {
+        $head-size: 28px;
         content: '';
         position: absolute;
         width: 0;
         height: 0;
-        border-top: 40px solid transparent;
-        border-left: 30px solid $solid-background;
-        border-bottom: 40px solid transparent;
-        right: -30px+1px;
+        border-top: $head-size solid transparent;
+        border-left: $head-size solid $blue;
+        border-bottom: $head-size solid transparent;
+        right: -$head-size+1px;
         top: 50%;
         transform: translateY(-50%);
     }
-}
-
-
-
-
-
-.dupa {
-    position: absolute;
-    top: 50%;
-    left: 7%;
-    width: 200px;
-    height: 20px;
-    background: url("../images/path-shape.svg#path");
-    background-size: 100% 100%;
 }

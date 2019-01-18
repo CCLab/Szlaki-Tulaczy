@@ -1,0 +1,15 @@
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 20;
+    height: 2.5*$unit;
+    display: flex;
+    align-items: center;
+    pointer-events: none;
+
+    .logo,
+    nav {
+        pointer-events: initial;
+    }
+}

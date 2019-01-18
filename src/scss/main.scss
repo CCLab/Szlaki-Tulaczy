@@ -1,19 +1,35 @@
-@import "base/reset";
 @import "base/consts";
+@import "base/reset";
 @import "base/fonts";
+@import "base/svg";
+@import "base/boxshadow";
+
+@import "components/header";
+@import "components/logo";
+@import "components/hamburger";
+@import "components/nav";
+@import "components/quote";
+@import "components/audio";
 
 @import "components/map";
 @import "components/phases";
 @import "components/dashboard";
+@import "components/details";
+@import "components/scrollbar";
+
+@import "components/intro";
+
+@import "pages/frontpage";
+@import "pages/page";
+@import "pages/map";
+
+@import "mobile";
 
 html, body {
     height: 100%;
-    overflow: hidden;
 }
 
-body {
-    background: white;
-    position: relative;
-    display: flex;
-    flex-direction: column;
+main {
+    height: 100%;
+    width: 100%;
 }

@@ -1,16 +1,26 @@
-.dashboard {    
-    position: absolute;
-
-    height: calc(100% - #{1.5 * $unit});
+.dashboard {
     width: $dashboard-width;
+    padding-left: $unit;
+    padding-right: $unit;
+    pointer-events: none;
+    min-width: 15em;
+}
+
+.page-map main .dashboard {
+    position: absolute;
     left: 0;
-    top: 0;
+    top: $frame-width;
+    height: calc(100% - #{1.5 * $unit} - #{$frame-width});
+    max-height: calc(100% - #{$unit/2 + $frame-width} - #{2.5*$font-size-s});
 
-    padding: 3*$unit $unit 0 $unit;
-
+    padding-top: calc(#{2*$unit} + #{$font-size-l});
     background: $transparent-background;
 
-    color: $solid-background;
+    transition: transform .2s;
+
+    &.dashboard__hidden {
+        transform: translateX(calc(-100% + #{$frame-width}));
+    }
 }
 
 .dashboard--phase {
@@ -21,5 +31,11 @@
     hr {
         border-color: $solid-background;
         border-width: .5px;
+        font-size: $font-size-l;
+        margin: 1.5em 0;
     }
+}
+
+.dashboard--phase--title {
+    display: none;
 }

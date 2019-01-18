@@ -1,0 +1,15 @@
+{% macro audio(title, mp3) %}
+    <div class="audio">
+        <div class="audio--controls">
+            <svg class="svg-icon"><use xlink:href="/wp-content/themes/tulacze-theme/images/icon-sound.svg#Layer_1"></use></svg>
+            <figure class="audio--stop"><span class="audio--stop-symbol"></span></figure>
+            <svg class="svg-icon-wave"><use xlink:href="/wp-content/themes/tulacze-theme/images/icon-sound-wave.svg#Layer_1"></use></svg>
+            <span class="audio--time">0"</span>
+        </div>
+        <div class="audio--title">{{title}} <span class="audio--duration"></span></div>
+        <audio>
+            <source src="{{Image(mp3).src}}" type="audio/mpeg">
+            Your browser does not support the audio tag.
+        </audio>
+    </div>
+{% endmacro %}

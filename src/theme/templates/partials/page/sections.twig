@@ -1,0 +1,8 @@
+{% for section in page.tul_sections %}
+<section class="page--content">
+    <h2 class="heading">{{section.title}}</h2>
+    {% for item in section.content %}
+        {% include 'partials/page/section-' ~ item._type ~ '.twig' %}        
+    {% endfor %}
+</section>
+{% endfor %}

@@ -28,9 +28,18 @@ article, aside, details, figcaption, figure,
 footer, header, hgroup, main, menu, nav, section {
 	  display: block;
 }
+// html,
+// body {
+//     transform: translateZ(0);
+// }
 body {
-	  line-height: 1;
+    line-height: 1;
+    //   zoom: 1;
 }
+// main {
+//     filter: blur(0px);
+//     backface-visibility: hidden;
+// }
 ol, ul {
 	  list-style: none;
 }
@@ -60,4 +69,24 @@ a {
 
 input {
     outline: 0;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+li,
+a,
+strong,
+text,
+svg,
+.heading,
+span {
+
+    &::selection {
+        color: $orange;
+        background-color: $darkblue;
+    }
+
 }

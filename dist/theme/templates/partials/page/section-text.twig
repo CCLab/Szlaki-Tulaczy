@@ -1,0 +1,27 @@
+{% import 'macros/audio.twig' as Audio %}
+
+<section class="section-row{{item.is_important ? ' section-row__important'}}">
+    {% if item.is_quote %}<span class="section-row--quote-bar"></span>{% endif %}
+    
+    <div class="section-row--meta lead">
+        {{item.meta | wpautop}}
+        {% if item.ref %}
+            <p><span class="quote--ref">sygn. {{item.ref}}</span></p>
+        {% endif %}
+        {% if item.image %}
+            <img src={{item.image}}>
+        {% endif %}
+        
+    </div>
+    <div class="section-row--content{{item.is_quote ? ' quote'}}">
+        {% if not(item.is_audio) %}
+            {{item.text | wpautop}}
+        {% else %}
+            {{ Audio.audio(item.audio_name, item.audio) }}
+        {% endif %}
+        
+        {% if item.link['url'] %}
+            <p><a class="quote--link" href="{{item.link['url']}}"{{item.link['blank'] ? ' target="_blank"'}}>{{item.link['anchor']}}</a></p>
+        {% endif %}
+    </div>
+</section>

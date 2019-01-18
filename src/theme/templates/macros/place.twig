@@ -1,0 +1,9 @@
+{% macro place(name, slug, count, top, left) %}
+
+{% set size = max((count | sqrt) / 10, 20)|round %}
+
+<div class="map--place" data-link="{{slug}}" style="left:{{left}}%;top:{{top}}%;width:{{size}}px;height:{{size}}px;">
+    <span class="map--place--name">{{name}}</span>
+    <span class="map--place--size">{{count}}</span>
+</div>
+{% endmacro %}

@@ -2,9 +2,9 @@
     "webpack_includes": [],
     "envs": {
         "tst": {
-            "host": "",
+            "host": "tulacze.superskrypt.pl",
             "user": "superskrypt",
-            "path": "public_html/profsa.pl/wp-content/themes/tulacze-theme"
+            "path": "public_html/tulacze.superskrypt.pl/wp-content/themes/tulacze-theme"
         },
         "prod": {
             "host": "",

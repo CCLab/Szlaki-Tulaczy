@@ -1,6 +1,6 @@
 {
   "name": "tulacze-theme",
-  "version": "0.1.0",
+  "version": "1.0.1",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -10,12 +10,10 @@
   "license": "ISC",
   "dependencies": {
     "@superskrypt/sutils": "^0.2.0",
-    "umbrellajs": "^3.1.0",
-    "zepto": "^1.2.0",
-    "zepto-modules": "^1.0.1"
+    "siema": "^1.5.1"
   },
   "devDependencies": {
-    "@superskrypt/gulp-tasks": "0.2.3",
-    "gulp": "3.9.1"
+    "@superskrypt/gulp-tasks": "^0.6.0",
+    "gulp": "^3.9.1"
   }
 }

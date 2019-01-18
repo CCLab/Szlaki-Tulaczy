@@ -15,23 +15,34 @@
     .phases--phase {
         height: $unit;
         width: 5*$unit;
+        min-width: 12em;
+        min-height: 2.5em;
         display: flex;
         position: relative;
 
-        $border-width: 4px;
-        border: $border-width solid $solid-background;
+        $border-width: $thick-line-width;
+        border: $border-width solid $blue;
         margin-left: -$border-width;
 
         flex-direction: column;
         justify-content: center;
 
-        text-transform: uppercase;
+        @include fontUppercaseSmall;
+        color: white;
+
         user-select: none;
-        cursor: pointer;
         text-align: center;
 
+        transition: background .3s, color .3s;
+
+        &:not(.active):hover {
+            background: $orange;
+            color: $darkblue;
+            cursor: pointer;
+        }
+
         &.active {
-            background: $solid-background;
+            background: $blue;
 
             &:before,
             &:after {

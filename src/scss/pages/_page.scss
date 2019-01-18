@@ -1,0 +1,214 @@
+@mixin pageGrid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-column-gap: $unit;
+    padding-left: 3*$unit;
+    padding-right: 3*$unit;
+}
+
+@mixin subgrid($i) {
+    grid-column: 1 / span $i;
+    display: grid;
+    grid-template-columns: repeat($i, 1fr);
+    grid-column-gap: $unit;
+}
+
+.page-template-default {
+    &:not(.home) main {
+        background-color: $violet;
+    }
+    .logo {
+        color: $orange;
+
+        & span:nth-child(2):after {
+            background: $orange;
+        }
+    }
+    .quote--link {
+        color: $orange;
+    }
+}
+
+.duotone {
+    position: absolute;
+    color-interpolation-filters:sRGB;
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-repeat:no-repeat;
+    background-size: cover;
+}
+
+.page--excerpt {
+    position: relative;
+    min-height: 66vh;
+
+    color: $orange;
+    background: $blue;
+
+    .page--excerpt--content {
+        @include pageGrid;
+        position: relative;
+    }
+
+    h1 {
+        grid-column: 2 / span 4;
+        margin-top: 4*$unit;
+        margin-bottom: 2.5*$unit;
+    }
+
+    .heading-icon {
+        grid-column: 1 / span 1;
+        width: auto;
+        height: calc( #{$font-size-xxl} * 1.4 );
+        margin-top: calc( 4 * #{$unit} - ( #{$font-size-xxl} * 1.4 - #{$font-size-xxl} ) / 2 );
+        user-select: none;
+
+        svg {
+            height: 100%;
+
+            .cls-3,
+            .cls-5 {
+                stroke: $orange;
+            }
+            .cls-4 {
+                fill: $orange;
+            }
+
+        }
+    }
+
+    .page--excerpt--intro {
+        @include fontUppercaseSmall;
+        margin-bottom: 1.5em;
+    }
+
+    .page--excerpt--intro,
+    .page--excerpt--meta,
+    .page--excerpt--excerpt {
+        grid-column: 1 / span 4;
+        line-height: 1.4;
+    }
+
+    .page--excerpt--meta {
+        margin-bottom: 1em;
+
+        p {
+            margin-bottom: 0;
+        }
+    }
+
+    .page--excerpt--excerpt {
+        margin-bottom: 2.5*$unit;
+    }
+}
+
+.page--content {
+    min-height: 200px;
+    background: linear-gradient(rgb(50,40,80), $violet);
+    @include pageGrid;
+    position: relative;
+
+    color: $orange-tint;
+
+    h2 {
+        grid-column: 4 / span 3;
+        margin-top: 2*$unit;
+        margin-bottom: 2*$unit;
+
+        font-size: $font-size-xl;
+    }
+
+    .section-row {
+        @include subgrid(6);
+        position: relative;
+        margin-bottom: 2*$unit;
+
+        img {
+            width: 100%;
+            @include boxshadow($darkblue, .75, 50px);
+        }
+
+        .section-row--img__small {
+            grid-column: 1 / span 2;
+        }
+
+        .section-row--img__large {
+            grid-column: 3 / span 4;
+        }
+
+        .section-row--meta {
+            grid-column: 1 / span 3;
+
+            p {
+                margin-bottom: 0;
+            }
+
+            * + img {
+                margin-top: $unit;
+            }
+        }
+
+        .section-row--content {
+            grid-column: 4 / span 3;
+        }
+
+        .audio {
+            svg * {
+                stroke: $orange-tint;
+                fill: $orange-tint;
+            }
+            .audio--stop {
+                background-color: $orange-tint;
+            }
+        }
+
+        &.section-row__important {
+            .section-row--meta {
+                @include subgrid(6);
+
+                p {
+                    grid-column: 1 / span 3;
+                }
+
+                img {
+                    grid-column: 1 / span 6;
+                }
+            }
+            .section-row--content {
+                grid-column: 1 / span 4;
+                font-size: $font-size-l;
+                font-weight: $font-weight-semibold;
+                line-height: 1.4em;
+            }
+        }
+
+        &--quote-bar {
+            position: relative;
+            height: 1px;
+            width: calc(100% + #{$unit});
+            background: $orange;
+            grid-column: 1 / 5;
+            margin-bottom: $unit/2;
+            margin-left: -$unit;
+
+            &:before,
+            &:after {
+                content: '';
+                position: absolute;
+                top: -2px;
+                height: 5px;
+                width: 1px;
+                background: $orange;
+            }
+
+            &:before {
+                left: 0;
+            }
+
+            &:after {
+                right: 0;
+            }
+        }
+    }
+}

@@ -3,13 +3,13 @@
         path{fill:url(#path-gradient)}
     </style>
     <path d="M0,0
-           L100,20
-           L100,80
+           L100,33
+           L100,67
            L0,100z" />
     <defs>
         <linearGradient id="path-gradient">
-            <stop offset="5%" stop-color="red" />
-            <stop offset="95%" stop-color="blue" />
+            <stop offset="5%" stop-color="rgb(255,135,115)" />
+            <stop offset="95%" stop-color="rgb(50,50,170)" />
         </linearGradient>
     </defs>
 </svg>

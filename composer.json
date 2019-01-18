@@ -2,13 +2,14 @@
     "repositories": [
         {
             "type": "git",
-            "url":  "git@bitbucket.org:superskrypt/wordpress-theme-base.git"
+            "url":  "git@bitbucket.org:superskrypt/wp-theme-base.git"
         }
     ],
     "require": {
-        "superskrypt/wordpress-theme-base": "*",
+        "superskrypt/wp-theme-base": "*",
         "timber/timber": "^1.5.2",
-        "htmlburger/carbon-fields": "^2.1"
+        "htmlburger/carbon-fields": "^2.1",
+        "iamntz/carbon-fields-urlpicker": "dev-master"
     },
     "minimum-stability": "dev"
 }

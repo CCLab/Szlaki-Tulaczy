@@ -1,0 +1,19 @@
+.page-map {
+    height: 100%;
+    overflow: hidden;
+
+    background: white;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+    .logo {
+        color: $darkblue;
+
+        span:nth-child(2) {
+            &:after {
+                background-color: $darkblue;
+            }
+        }
+    }
+}
